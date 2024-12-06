@@ -5,7 +5,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   root: "src/",
   server: {
-    host: 'localhost',
+    host: "localhost",
     port: 5173
   },
   build: {
@@ -13,6 +13,9 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, "src/index.html"),
+        tradesmen: resolve(__dirname, "src/tradesmen/index.html"),
+        join: resolve(__dirname, "src/join/index.html"),
+        proximity: resolve(__dirname, "src/proximity/index.html")
       },
     },
   },

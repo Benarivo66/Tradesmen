@@ -1,0 +1,27 @@
+[
+  {
+    "message":"Showcase your craftsmanship! Customers value precision and attention to detail—whether it’s custom furniture or home repairs, always bring your best work to life.",
+    "background": "#FFDEAD",
+    "color": "#8B4513"
+  },
+  {
+    "message": "Safety first, always! Be the trusted expert by ensuring thorough inspections, clean installations, and reliable fixes to keep your clients powered up and worry-free.",
+    "background": "#FFD700",
+    "color": "#8B0000"
+  },
+  {
+    "message": "Every repair tells your story. Deliver exceptional service with detailed diagnostics and high-quality fixes that keep your customers’ vehicles running like new.",
+    "background": "#FFA07A",
+    "color": "#DC143C"
+  },
+  {
+    "message": "Be the tech hero! Provide fast, efficient solutions that clients can depend on—whether it’s fixing appliances, setting up systems, or troubleshooting electronics.",
+    "background": "#EEE8AA",
+    "color": "#2E8B57"
+  },
+  {
+    "message": "Your expertise matters! From fixing leaks to major installations, deliver lasting solutions that customers trust to keep their homes running smoothly.",
+    "background": "#F5DEB3",
+    "color": "#8B4513"
+  }
+]
