@@ -1,20 +1,27 @@
-import { loadHeaderFooter, activateHamburger, qs } from "./utils.mjs";
+import {
+  loadHeaderFooter,
+  activateHamburger,
+  qs,
+  wayfinding,
+} from "./utils.mjs";
 import Alert from "./Alert";
 loadHeaderFooter(
   "../index.html",
-  "../tradesmen/index.html",
-  "../join/index.html",
-  "../proximity/index.html",
+  "../tradesmen/tradesmen.html",
+  "../join/join.html",
+  "../about/about.html",
   "../images/twitter.svg",
   "../images/instagram.svg",
-  "../images/youtube.svg"
+  "../images/youtube.svg",
 );
 activateHamburger();
+wayfinding();
 const hiddenInput = qs(`input[type="hidden"]`);
 const d = new Date();
 const isoDate = d.toISOString();
 hiddenInput.value = isoDate;
 
 const alert = new Alert("alerts");
-alert.renderElement();
-
+setTimeout(() => {
+  alert.renderElement();
+}, 100);

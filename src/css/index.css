@@ -10,8 +10,8 @@
 }
 :root {
   --primary-color: #cc5500;
-  --secondary-color: #F8F9FA;
-  --tertiary-color: #6C757D ;
+  --secondary-color: #f8f9fa;
+  --tertiary-color: #6c757d;
 }
 * {
   margin: 0;
@@ -26,6 +26,7 @@ header {
   padding: 1rem;
   background-color: var(--primary-color);
   color: var(--secondary-color);
+  width: 100vw;
 }
 header div:first-of-type,
 header div:nth-of-type(2) {
@@ -117,6 +118,9 @@ nav a:hover {
   content: "x";
 }
 /* HOME PAGE */
+.active {
+  text-decoration: overline;
+}
 .hero {
   display: flex;
   flex-direction: column;
@@ -133,20 +137,27 @@ nav a:hover {
   margin: 1%;
   color: var(--secondary-color);
 }
-.home-container{
+.home-container {
   padding: 1rem;
 }
-.home-container img{
+.home-container img {
   height: 300px;
-  width: auto
+  width: auto;
 }
 /* TRADESMEN PAGE  */
-.tradesmen-container{
+.tradesmen-container {
   padding: 1rem;
   display: flex;
   flex-wrap: wrap;
 }
-.tradesman{
+.tradeOptions {
+  margin: 1rem;
+}
+.tradesmen-container img {
+  width: 20vw;
+  height: 25vh;
+}
+.tradesman {
   margin: 1rem;
   padding: 1rem;
   border: solid 1px black;
@@ -155,7 +166,7 @@ nav a:hover {
 .tradesman * {
   padding: 0.25rem;
 }
-.details{
+.details {
   display: block;
   margin-left: 40vw;
   border: solid 1px var(--tertiary-color);
@@ -166,8 +177,14 @@ nav a:hover {
   padding: 1rem;
   height: auto;
 }
+.pagination-container {
+  margin: 2%;
+}
+.pagination-container * {
+  padding: 1%;
+}
 /* JOIN US PAGE*/
-.join-container{
+.join-container {
   padding: 1rem;
   margin: 2%;
 }
@@ -213,15 +230,44 @@ select:required:valid,
 input:required:valid {
   border-right: solid 8px green;
 }
-.alert-list, .alert-list p{
+.alert-list,
+.alert-list p {
   margin-top: 3%;
 }
+@keyframes animateIcon {
+  0% {
+    width: 100%;
+    height: auto;
+  }
+  25% {
+    width: 110%;
+    height: auto;
+  }
+  50% {
+    width: 90%;
+    height: auto;
+  }
+  75% {
+    width: 115%;
+    height: auto;
+  }
+  100% {
+    width: 100%;
+    height: auto;
+  }
+}
+.animateIcon {
+  animation-name: animateIcon;
+  animation-duration: 2s;
+}
+
 /* THANK YOU PAGE  */
 #container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  height: 63.5vh;
   color: var(--tertiary-color);
 }
 #container > p {
@@ -233,7 +279,15 @@ input:required:valid {
 #results {
   padding: 1rem;
 }
-
+/* ABOUT */
+.about-text *,
+.about-images * {
+  padding: 0.5rem;
+}
+.about-text,
+.about-images {
+  margin: 1rem;
+}
 /* FOOTER */
 footer {
   display: flex;
@@ -289,31 +343,35 @@ footer p {
   header div:nth-of-type(2) img {
     margin-left: 1rem;
   }
-  header form{
+  header form {
     display: block;
   }
   /* HOME PAGE  */
-  .home-container{
+  .home-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .home-container img{
-    height: 400px
+  .home-container img {
+    height: 400px;
   }
   /* TRADESMEN */
-  .tradesmen-container{
+  .tradesmen-container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
   /* JOIN US PAGE*/
-  .join-container{
+  .join-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .alert-list{
+  .alert-list {
     margin-left: 3%;
   }
-
+  /* ABOUT */
+  .about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
   /* FOOTER  */
   footer div:nth-of-type(2) {
     flex-direction: row;

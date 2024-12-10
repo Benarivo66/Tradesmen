@@ -1,10 +1,4 @@
-import {
-  loadHeaderFooter,
-  activateHamburger,
-  renderTradesmen,
-  wayfinding,
-  qs,
-} from "./utils.mjs";
+import { loadHeaderFooter, activateHamburger, wayfinding } from "./utils.mjs";
 loadHeaderFooter(
   "../index.html",
   "../tradesmen/tradesmen.html",
@@ -15,8 +9,4 @@ loadHeaderFooter(
   "../images/youtube.svg",
 );
 activateHamburger();
-renderTradesmen();
-qs("#tradeOption").addEventListener("change", (event) => {
-  renderTradesmen(event.target.value);
-});
 wayfinding();

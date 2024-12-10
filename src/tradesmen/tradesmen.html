@@ -17,16 +17,26 @@
     />
     <link rel="stylesheet" href="../css/normalize.css" />
     <link rel="stylesheet" href="../css/index.css" />
-    <script src="../js/thankyou.js" type="module"></script>
+    <script src="../js/tradesmen.js" type="module"></script>
   </head>
-  <body class="outfit-normal">
-    <header></header>
+  <body>
+    <header class="outfit-normal"></header>
     <main class="outfit-normal">
-      <div id="container">
-        <p>Welcome Onboard Tradesman</p>
-        <div id="results"></div>
-      </div>
+      <label class="tradeOptions" for="tradeOption"
+        >Choose a Trade:
+        <select name="tradeOption" id="tradeOption">
+          <option disabled selected value>-- select an option --</option>
+          <option value="carpenter">Carpenter</option>
+          <option value="electrician">Electrician</option>
+          <option value="plumber">Plumber</option>
+          <option value="technician">Technician</option>
+          <option value="mechanic">Mechanic</option>
+        </select>
+      </label>
+
+      <section class="tradesmen-container"></section>
+      <div class="pagination-container"></div>
     </main>
-    <footer></footer>
+    <footer class="outfit-normal"></footer>
   </body>
 </html>

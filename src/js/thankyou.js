@@ -1,15 +1,18 @@
 import { loadHeaderFooter, activateHamburger, qs } from "./utils.mjs";
 loadHeaderFooter(
   "../index.html",
-  "../tradesmen/index.html",
-  "../join/index.html",
-  "../proximity/index.html",
+  "../tradesmen/tradesmen.html",
+  "../join/join.html",
+  "../about/about.html",
   "../images/twitter.svg",
   "../images/instagram.svg",
   "../images/youtube.svg",
 );
 activateHamburger();
-
+setTimeout(() => {
+  qs("#trademanIcon").classList.add("animateIcon");
+}, 100);
+// qs("#trademanIcon").classList.add("animateIcon");
 function renderThankYouPage() {
   const observer = new MutationObserver(() => {
     const showInfo = qs("#results");

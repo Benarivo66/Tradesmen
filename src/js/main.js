@@ -1,3 +1,10 @@
-import { loadHeaderFooter, activateHamburger } from "./utils.mjs";
+import {
+  loadHeaderFooter,
+  activateHamburger,
+  trackVisits,
+  wayfinding,
+} from "./utils.mjs";
 loadHeaderFooter();
 activateHamburger();
+trackVisits();
+wayfinding();

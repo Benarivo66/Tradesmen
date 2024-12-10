@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lagos Island Tradesmen</title>
+    <meta
+      name="description"
+      content="WDD 330 - Web Frontend Development II Project: Lagos Island Tradesmen"
+    />
+    <meta name="author" content="Anthony Izekor" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Outfit:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../css/normalize.css" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <script src="../js/join.js" type="module"></script>
+  </head>
+  <body class="outfit-normal">
+    <header></header>
+    <main>
+      <section class="join-container">
+        <form method="get" action="../thankyou/index.html">
+          <div class="container">
+            <label for="first-name"
+              >First Name:
+              <input
+                type="text"
+                id="first-name"
+                name="first-name"
+                title="Please enter your first name"
+                required
+                autocomplete="given-name"
+              />
+            </label>
+          </div>
+          <div class="container">
+            <label for="last-name"
+              >Last Name:
+              <input
+                type="text"
+                id="last-name"
+                name="last-name"
+                title="Please enter your last name"
+                required
+                autocomplete="family-name"
+              />
+            </label>
+          </div>
+          <div class="container">
+            <label for="email"
+              >Email:
+              <input
+                type="email"
+                id="email"
+                name="email"
+                title="Please enter your email"
+                placeholder="aie@example.com"
+                autocomplete="email"
+                required
+              />
+            </label>
+          </div>
+          <div class="container">
+            <label for="telephone"
+              >Phone:
+              <input
+                type="tel"
+                id="telephone"
+                name="telephone"
+                title="Please enter your phone number"
+                autocomplete="tel"
+                required
+              />
+            </label>
+          </div>
+          <div class="container">
+            <label for="trade"
+              >Trade:
+              <input
+                type="text"
+                id="trade"
+                name="trade"
+                title="Please enter your trade"
+                required
+              />
+            </label>
+          </div>
+          <div class="container">
+            <label for="description">
+              Tell us something unique about your services (optional):
+              <textarea name="description" id="description"></textarea>
+            </label>
+          </div>
+          <div>
+            <label>
+              <input type="hidden" id="timestamp" name="timestamp" />
+            </label>
+          </div>
+          <input type="submit" value="Join Us Today" />
+        </form>
+      </section>
+    </main>
+    <footer></footer>
+  </body>
+</html>

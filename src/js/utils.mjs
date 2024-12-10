@@ -1,4 +1,14 @@
+const photoSource = {
+  0: `../images/photos/tm-1.avif`,
+  1: `../images/photos/tm-2.avif`,
+  2: `../images/photos/tm-3.avif`,
+  3: `../images/photos/tm-4.avif`,
+  4: `../images/photos/tm-5.avif`
+};
 const url = "https://run.mocky.io/v3/224d2f42-33d8-4dab-88ba-0ff2426e10a2";
+let currentPage = 1;  
+const itemsPerPage = 10; 
+
 function convertToText(res) {
   if (res.ok) {
     return res.text();
@@ -79,9 +89,9 @@ async function loadTemplate(path) {
 
 export async function loadHeaderFooter(
   homeHref = "index.html",
-  tradesmenHref = "tradesmen/index.html",
-  joinHref = "join/index.html",
-  proximityHref = "proximity/index.html",
+  tradesmenHref = "tradesmen/tradesmen.html",
+  joinHref = "join/join.html",
+  aboutHref = "about/about.html",
   twitterSrc = "",
   instagramSrc = "",
   youtubeSrc = "",
@@ -96,7 +106,7 @@ export async function loadHeaderFooter(
 
   const homeLink = qs("#homeLink");
   const tradesmenLink = qs("#tradesmenLink");
-  const proximityLink = qs("#proximityLink");
+  const aboutLink = qs("#aboutLink");
   const joinLink = qs("#joinLink");
   const twitterIcon = qs("#twitter");
   const instagramIcon = qs("#instagram");
@@ -104,7 +114,7 @@ export async function loadHeaderFooter(
 
   if (homeLink) homeLink.href = homeHref;
   if (tradesmenLink) tradesmenLink.href = tradesmenHref;
-  if (proximityLink) proximityLink.href = proximityHref;
+  if (aboutLink) aboutLink.href = aboutHref;
   if (joinLink) joinLink.href = joinHref;
   if (twitterIcon) twitterIcon.src = twitterSrc;
   if (instagramIcon) instagramIcon.src = instagramSrc;
@@ -135,14 +145,70 @@ export function activateHamburger() {
   });
   observer.observe(document.body, { childList: true, subtree: true });
 }
-export async function renderTradesmen(){
-  let count = 0;
+export function trackVisits() {
+  const msToDays = 86400000;
+  const lastVisitedElem = qs(".last-visited");
+  const currentDayMS = Date.now();
+  let lastVisit = getLocalStorage("lastVisit")
+    ? parseInt(getLocalStorage("lastVisit"))
+    : currentDayMS;
+  let count = getLocalStorage("counta")
+    ? parseInt(getLocalStorage("counta"))
+    : 0;
+  const diffInDays = () => (currentDayMS - lastVisit) / msToDays;
+  if (count === 0) {
+    lastVisitedElem.innerHTML = `<strong>Welcome! Let us know if you have any questions.</strong>`;
+  } else if (diffInDays() < 1) {
+    lastVisitedElem.innerHTML = `<strong>Back so soon! Awesome!</strong>`;
+  } else if (diffInDays() >= 1) {
+    if (parseInt(diffInDays().toFixed(0)) === 1)
+      lastVisitedElem.innerHTML = `<strong>You last visited ${diffInDays().toFixed(
+        0,
+      )} day ago.</strong>`;
+    else
+      lastVisitedElem.innerHTML = `<strong>You last visited ${diffInDays().toFixed(
+        0,
+      )} days ago.</strong>`;
+  }
+  count += 1;
+  setLocalStorage("lastVisit", currentDayMS);
+  setLocalStorage("counta", count);
+}
+export function wayfinding() {
+  const observer = new MutationObserver(() => {
+    const currentPage = window.location.pathname.split("/").pop();
+    document.querySelectorAll("#animateme span a").forEach((elem) => {
+      const endPath = elem.getAttribute("href").split("/").pop();
+      if (endPath === currentPage) {
+        elem.classList.add("active");
+      }
+    });
+    observer.disconnect();
+  });
+  observer.observe(document.body, { childList: true, subtree: true });
+}
+
+export async function renderTradesmen(selectedTrade = "") {
   const tradesmen = await getData();
   setLocalStorage("tradesmenData", tradesmen);
   const container = qs(".tradesmen-container");
+  const paginationContainer = qs(".pagination-container");  
+
   container.innerHTML = "";
-  tradesmen.forEach(tradesman => {
-    count += 1;
+  paginationContainer.innerHTML = ""; 
+
+  const filteredTradesmen = selectedTrade
+    ? tradesmen.filter(tradesman =>
+        tradesman.trade.toLowerCase() === selectedTrade.toLowerCase())
+    : tradesmen;
+
+  const totalPages = Math.ceil(filteredTradesmen.length / itemsPerPage);
+
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const paginatedTradesmen = filteredTradesmen.slice(startIndex, endIndex);
+
+  paginatedTradesmen.forEach((tradesman, index) => {
     const card = document.createElement("div");
     const nonImg = document.createElement("div");
     card.setAttribute("class", "tradesman");
@@ -150,14 +216,14 @@ export async function renderTradesmen(){
     const location = document.createElement("p");
     const trade = document.createElement("p");
     const img = document.createElement("img");
-    img.setAttribute("src", `../images/photos/tm-${count}.avif`);
+    img.setAttribute("src", `${photoSource[index]}`);
     const button = document.createElement("button");
     button.innerText = "See more";
     button.addEventListener("click", () => {
       container.innerHTML = "";
       const tradesmanHTML = `
       <div class="details">
-        <img src="../images/photos/tm-${count}.avif" alt="${tradesman.fullName}">
+        <img src=${photoSource[index]} alt="${tradesman.fullName}">
         <p>Name: ${tradesman.fullName}</p>
         <p>Trade: ${tradesman.trade}</p>
         <p>Location: ${tradesman.location}</p>
@@ -165,10 +231,10 @@ export async function renderTradesmen(){
         <p>Experience: ${tradesman.yearsExperience} years</p>
         <p>Rating: ${tradesman.rating}</p>
         <a href="index.html">Back to Tradesmen List<a/>
-        </div>
+      </div>
       `;
       renderWithTemplate(tradesmanHTML, container);
-    })
+    });
     button.setAttribute("class", "detailsButton");
     fullName.innerHTML = `Name: ${tradesman.fullName}`;
     location.innerHTML = `Location: ${tradesman.location}`;
@@ -178,6 +244,28 @@ export async function renderTradesmen(){
     card.append(img, nonImg);
     container.appendChild(card);
   });
+  renderPaginationControls(totalPages, paginationContainer);
 }
 
+function renderPaginationControls(totalPages, container) {
+  const prevButton = document.createElement("button");
+  prevButton.innerText = "Previous";
+  prevButton.disabled = currentPage === 1;
+  prevButton.addEventListener("click", () => {
+    currentPage -= 1;
+    renderTradesmen();  
+  });
 
+  const nextButton = document.createElement("button");
+  nextButton.innerText = "Next";
+  nextButton.disabled = currentPage === totalPages;
+  nextButton.addEventListener("click", () => {
+    currentPage += 1;
+    renderTradesmen();
+  });
+  const pageNumberDisplay = document.createElement("span");
+  pageNumberDisplay.innerText = `Page ${currentPage} of ${totalPages}`;
+  container.appendChild(prevButton);
+  container.appendChild(pageNumberDisplay);
+  container.appendChild(nextButton);
+}
