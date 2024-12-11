@@ -234,7 +234,7 @@ export async function renderTradesmen(selectedTrade = "") {
         <p>Phone: ${tradesman.phone}</p>
         <p>Experience: ${tradesman.yearsExperience} years</p>
         <p>Rating: ${tradesman.rating}</p>
-        <a href="index.html">Back to Tradesmen List<a/>
+        <a href="tradesmen.html">Back to Tradesmen List<a/>
       </div>
       `;
       renderWithTemplate(tradesmanHTML, container);
