@@ -4,6 +4,8 @@ import {
   renderTradesmen,
   wayfinding,
   qs,
+  getParams,
+  changeFormAction
 } from "./utils.mjs";
 loadHeaderFooter(
   "../index.html",
@@ -15,7 +17,9 @@ loadHeaderFooter(
   "../images/youtube.svg",
 );
 activateHamburger();
-renderTradesmen();
+changeFormAction("tradesmen.html")
+const selectedTrade = getParams("trade");
+renderTradesmen(selectedTrade);
 qs("#tradeOption").addEventListener("change", (event) => {
   renderTradesmen(event.target.value);
 });

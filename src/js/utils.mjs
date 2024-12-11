@@ -1,9 +1,29 @@
 const photoSource = {
-  0: `../images/photos/tm-1.avif`,
-  1: `../images/photos/tm-2.avif`,
-  2: `../images/photos/tm-3.avif`,
-  3: `../images/photos/tm-4.avif`,
-  4: `../images/photos/tm-5.avif`
+  1: "../images/photos/tm-1.avif",
+  2: "../images/photos/tm-2.avif",
+  3: "../images/photos/tm-3.avif",
+  4: "../images/photos/tm-4.avif",
+  5: "../images/photos/tm-5.avif",
+  6: "../images/photos/tm-6.png",
+  7: "../images/photos/tm-7.webp",
+  8: "../images/photos/tm-8.webp",
+  9: "../images/photos/tm-9.png",
+  10: "../images/photos/tm-10.png",
+  11: "../images/photos/tm-11.jpg",
+  12: "../images/photos/male-avatar.avif",
+  13: "../images/photos/tm-13.jpg",
+  14: "../images/photos/male-avatar.avif",
+  15: "../images/photos/female-avatar.avif",
+  16: "../images/photos/tm-16.avif",
+  17: "../images/photos/female-avatar.avif",
+  18: "../images/photos/male-avatar.avif",
+  19: "../images/photos/female-avatar.avif",
+  20: "../images/photos/tm-20.avif",
+  21: "../images/photos/female-avatar.avif",
+  22: "../images/photos/tm-22.jpg",
+  23: "../images/photos/female-avatar.avif",
+  24: "../images/photos/male-avatar.avif",
+  25: "../images/photos/tm-25.jpg",
 };
 const url = "https://run.mocky.io/v3/224d2f42-33d8-4dab-88ba-0ff2426e10a2";
 let currentPage = 1;  
@@ -42,33 +62,17 @@ export function getLocalStorage(key) {
 export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
-export function setClick(selector, callback) {
-  qs(selector).addEventListener("touchend", (event) => {
-    event.preventDefault();
-    callback();
-  });
-  qs(selector).addEventListener("click", callback);
-}
+
 export function getParams(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
-  const product = urlParams.get(param);
+  let product;
+  if(urlParams)
+  product = urlParams.get(param);
 
   return product;
 }
-export function renderListWithTemplate(
-  templateFn,
-  parentElement,
-  list,
-  position = "afterBegin",
-  clear = false,
-) {
-  if (clear) {
-    parentElement.innerHTML = "";
-  }
-  const htmlStrings = list.map(templateFn);
-  parentElement.insertAdjacentHTML(position, htmlStrings.join(""));
-}
+
 export function renderWithTemplate(
   template,
   parentElement,
@@ -121,7 +125,7 @@ export async function loadHeaderFooter(
   if (youtubeIcon) youtubeIcon.src = youtubeSrc;
 }
 
-export function changeFormAction(path = "../product-listing/index.html") {
+export function changeFormAction(path = "../tradesmen/tradesmen.html") {
   const observer = new MutationObserver(() => {
     const searchForm = document.forms.searchForm;
     if (searchForm) {
@@ -176,10 +180,10 @@ export function trackVisits() {
 }
 export function wayfinding() {
   const observer = new MutationObserver(() => {
-    const currentPage = window.location.pathname.split("/").pop();
+    const currentPag = window.location.pathname.split("/").pop();
     document.querySelectorAll("#animateme span a").forEach((elem) => {
       const endPath = elem.getAttribute("href").split("/").pop();
-      if (endPath === currentPage) {
+      if (endPath === currentPag) {
         elem.classList.add("active");
       }
     });
@@ -208,7 +212,7 @@ export async function renderTradesmen(selectedTrade = "") {
   const endIndex = startIndex + itemsPerPage;
   const paginatedTradesmen = filteredTradesmen.slice(startIndex, endIndex);
 
-  paginatedTradesmen.forEach((tradesman, index) => {
+  paginatedTradesmen.forEach((tradesman) => {
     const card = document.createElement("div");
     const nonImg = document.createElement("div");
     card.setAttribute("class", "tradesman");
@@ -216,14 +220,14 @@ export async function renderTradesmen(selectedTrade = "") {
     const location = document.createElement("p");
     const trade = document.createElement("p");
     const img = document.createElement("img");
-    img.setAttribute("src", `${photoSource[index]}`);
+    img.setAttribute("src", `${photoSource[tradesman.id]}`);
     const button = document.createElement("button");
     button.innerText = "See more";
     button.addEventListener("click", () => {
       container.innerHTML = "";
       const tradesmanHTML = `
       <div class="details">
-        <img src=${photoSource[index]} alt="${tradesman.fullName}">
+        <img src=${photoSource[tradesman.id]} alt="${tradesman.fullName}">
         <p>Name: ${tradesman.fullName}</p>
         <p>Trade: ${tradesman.trade}</p>
         <p>Location: ${tradesman.location}</p>
@@ -269,3 +273,4 @@ function renderPaginationControls(totalPages, container) {
   container.appendChild(pageNumberDisplay);
   container.appendChild(nextButton);
 }
+

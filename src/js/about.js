@@ -1,4 +1,4 @@
-import { loadHeaderFooter, activateHamburger, wayfinding } from "./utils.mjs";
+import { loadHeaderFooter, activateHamburger, wayfinding, changeFormAction } from "./utils.mjs";
 loadHeaderFooter(
   "../index.html",
   "../tradesmen/tradesmen.html",
@@ -10,3 +10,5 @@ loadHeaderFooter(
 );
 activateHamburger();
 wayfinding();
+changeFormAction();
+

@@ -3,6 +3,7 @@ import {
   activateHamburger,
   qs,
   wayfinding,
+  changeFormAction
 } from "./utils.mjs";
 import Alert from "./Alert";
 loadHeaderFooter(
@@ -16,6 +17,7 @@ loadHeaderFooter(
 );
 activateHamburger();
 wayfinding();
+changeFormAction();
 const hiddenInput = qs(`input[type="hidden"]`);
 const d = new Date();
 const isoDate = d.toISOString();

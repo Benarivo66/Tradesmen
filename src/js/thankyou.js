@@ -1,4 +1,4 @@
-import { loadHeaderFooter, activateHamburger, qs } from "./utils.mjs";
+import { loadHeaderFooter, activateHamburger, qs, changeFormAction } from "./utils.mjs";
 loadHeaderFooter(
   "../index.html",
   "../tradesmen/tradesmen.html",
@@ -9,10 +9,10 @@ loadHeaderFooter(
   "../images/youtube.svg",
 );
 activateHamburger();
+changeFormAction();
 setTimeout(() => {
   qs("#trademanIcon").classList.add("animateIcon");
 }, 100);
-// qs("#trademanIcon").classList.add("animateIcon");
 function renderThankYouPage() {
   const observer = new MutationObserver(() => {
     const showInfo = qs("#results");
