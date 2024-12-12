@@ -191,11 +191,13 @@ nav a:hover {
   margin-left: 40vw;
   border: solid 1px var(--tertiary-color);
   border-radius: 10px;
-  width: 20vw;
+  width: 30vw;
+  height: auto;
+  background-color: var(--secondary-color);
+  padding: 1rem;
 }
 .details * {
-  padding: 1rem;
-  height: auto;
+  padding: 0.8rem;
 }
 .pagination-container {
   margin: 2%;
@@ -377,6 +379,9 @@ footer p {
   /* TRADESMEN */
   .tradesmen-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+  .details{
+    width: 22vw;
   }
   /* JOIN US PAGE*/
   .join-container {

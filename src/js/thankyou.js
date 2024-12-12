@@ -10,9 +10,20 @@ loadHeaderFooter(
 );
 activateHamburger();
 changeFormAction();
-setTimeout(() => {
-  qs("#trademanIcon").classList.add("animateIcon");
-}, 100);
+document.addEventListener("DOMContentLoaded", () => {
+  const icon = qs("#trademanIcon");
+  if (icon) {
+    setTimeout(() => {
+      icon.classList.add("animateIcon");
+    }, 100);
+  } else {
+    console.error("Element #trademanIcon not found.");
+  }
+});
+
+// setTimeout(() => {
+//   qs("#trademanIcon").classList.add("animateIcon");
+// }, 100);
 function renderThankYouPage() {
   const observer = new MutationObserver(() => {
     const showInfo = qs("#results");
