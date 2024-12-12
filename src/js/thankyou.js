@@ -12,7 +12,7 @@ activateHamburger();
 changeFormAction();
 setTimeout(() => {
   qs("#trademanIcon").classList.add("animateIcon");
-}, 200);
+}, 348);
 function renderThankYouPage() {
   const observer = new MutationObserver(() => {
     const showInfo = qs("#results");

@@ -26,4 +26,4 @@ hiddenInput.value = isoDate;
 const alert = new Alert("alerts");
 setTimeout(() => {
   alert.renderElement();
-}, 100);
+}, 350);
