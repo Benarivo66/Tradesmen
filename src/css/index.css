@@ -164,10 +164,6 @@ nav a:hover {
 .tradeOptions {
   margin: 1% 2%;
 }
-.tradesmen-container img {
-  width: 20vw;
-  height: 25vh;
-}
 .tradesman, .tradesman div {
   display: flex;
   flex-direction: column;
@@ -178,6 +174,11 @@ nav a:hover {
   border: solid 1px var(--tertiary-color);
   border-radius: 1rem;
   background-color: var(--secondary-color);
+}
+
+.tradesman img, .details img{
+  width: 35vw;
+  height: 25vh;
 }
 
 .tradesman * {
@@ -191,7 +192,7 @@ nav a:hover {
   margin-left: 40vw;
   border: solid 1px var(--tertiary-color);
   border-radius: 10px;
-  width: 30vw;
+  width: 40vw;
   height: auto;
   background-color: var(--secondary-color);
   padding: 1rem;
@@ -256,30 +257,28 @@ input:required:valid {
 .alert-list p {
   margin-top: 3%;
 }
-@keyframes animateIcon {
+@keyframes animatePage {
   0% {
-    width: 100%;
-    height: auto;
+   background-color: var(--primary-color);
   }
-  25% {
-    width: 110%;
-    height: auto;
+  10% {
+    background-color: var(--secondary-color);
+  }
+  20% {
+    background-color: var(--tertiary-color);
+  }
+  30% {
+    background-color: var(--primary-color);
+  }
+  40% {
+    background-color: var(--secondary-color);
   }
   50% {
-    width: 90%;
-    height: auto;
-  }
-  75% {
-    width: 115%;
-    height: auto;
-  }
-  100% {
-    width: 100%;
-    height: auto;
+    background-color: var(--tertiary-color);
   }
 }
-.animateIcon {
-  animation-name: animateIcon;
+.animatePage {
+  animation-name: animatePage;
   animation-duration: 2s;
 }
 @keyframes swing {
@@ -402,6 +401,9 @@ footer p {
   }
   .details{
     width: 22vw;
+  }
+  .tradesman img, .details img{
+    width: 20vw;
   }
   /* JOIN US PAGE*/
   .join-container {

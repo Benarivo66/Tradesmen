@@ -11,7 +11,7 @@ loadHeaderFooter(
 activateHamburger();
 changeFormAction();
 setTimeout(() => {
-  qs("#trademanIcon").classList.add("animateIcon");
+  qs("#container").classList.add("animatePage");
 }, 348);
 function renderThankYouPage() {
   const observer = new MutationObserver(() => {
