@@ -10,9 +10,7 @@ loadHeaderFooter(
 );
 activateHamburger();
 changeFormAction();
-setTimeout(() => {
   qs("#container").classList.add("animatePage");
-}, 348);
 function renderThankYouPage() {
   const observer = new MutationObserver(() => {
     const showInfo = qs("#results");
