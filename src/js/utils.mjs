@@ -1,5 +1,33 @@
-const baseUrl = "https://run.mocky.io/v3/fcc87491-adbc-450f-b71f-a50e3198d397";
-const imgUrl = "https://run.mocky.io/v3/8e7c989c-d369-4b68-ba37-52828eb6f1d8";
+// const imgs = {
+//   "1": "../images/photos/tm-1.avif",
+//   "2": "../images/photos/tm-2.avif",
+//   "3": "../images/photos/tm-3.avif",
+//   "4": "../images/photos/tm-4.avif",
+//   "5": "../images/photos/tm-5.avif",
+//   "6": "../images/photos/tm-6.png",
+//   "7": "../images/photos/tm-7.webp",
+//   "8": "../images/photos/tm-8.webp",
+//   "9": "../images/photos/tm-9.png",
+//   "10": "../images/photos/tm-10.png",
+//   "11": "../images/photos/tm-11.jpg",
+//   "12": "../images/photos/male-avatar.avif",
+//   "13": "../images/photos/tm-13.jpg",
+//   "14": "../images/photos/male-avatar.avif",
+//   "15": "../images/photos/female-avatar.avif",
+//   "16": "../images/photos/tm-16.avif",
+//   "17": "../images/photos/female-avatar.avif",
+//   "18": "../images/photos/male-avatar.avif",
+//   "19": "../images/photos/female-avatar.avif",
+//   "20": "../images/photos/tm-20.avif",
+//   "21": "../images/photos/female-avatar.avif",
+//   "22": "../images/photos/tm-22.jpg",
+//   "23": "../images/photos/female-avatar.avif",
+//   "24": "../images/photos/male-avatar.avif",
+//   "25": "../images/photos/tm-25.jpg"
+// }
+
+const baseUrl = import.meta.env.VITE_BASEURL;
+const imgUrl = import.meta.env.VITE_IMGURL;
 let currentPage = 1;  
 const itemsPerPage = 10; 
 
@@ -188,8 +216,8 @@ export async function renderTradesmen(selectedTrade = "") {
   const endIndex = startIndex + itemsPerPage;
   const paginatedTradesmen = filteredTradesmen.slice(startIndex, endIndex);
 
-  paginatedTradesmen.forEach((tradesman, index) => {
-    const photoIndex = index + 1;
+  paginatedTradesmen.forEach((tradesman) => {
+    const idStr = tradesman.id.toString();
     const card = document.createElement("div");
     const nonImg = document.createElement("div");
     card.setAttribute("class", "tradesman");
@@ -197,14 +225,14 @@ export async function renderTradesmen(selectedTrade = "") {
     const location = document.createElement("p");
     const trade = document.createElement("p");
     const img = document.createElement("img");
-    img.setAttribute("src", `${imgs[index][photoIndex]}`);
+    img.setAttribute("src", `${imgs[idStr]}`);
     const button = document.createElement("button");
     button.innerText = "See more";
     button.addEventListener("click", () => {
       container.innerHTML = "";
       const tradesmanHTML = `
       <div class="details">
-        <img src=${imgs[index][photoIndex]} alt="${tradesman.fullName}">
+        <img src=${imgs[idStr]} alt="${tradesman.fullName}">
         <p>Name: ${tradesman.fullName}</p>
         <p>Trade: ${tradesman.trade}</p>
         <p>Location: ${tradesman.location}</p>

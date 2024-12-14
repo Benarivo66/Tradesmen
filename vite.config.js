@@ -1,6 +1,8 @@
 import { resolve } from "path";
 // eslint-disable-next-line import/namespace
 import { defineConfig } from "vite";
+import dotenv from "dotenv";
+dotenv.config();
 
 export default defineConfig({
   root: "src/",
