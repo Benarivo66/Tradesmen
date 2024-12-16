@@ -17,4 +17,4 @@ activateHamburger();
 wayfinding();
 setTimeout(() => {
   trackVisits();
-}, 300);
+}, 1000);
