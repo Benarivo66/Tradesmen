@@ -18,9 +18,9 @@ loadHeaderFooter(
 );
 activateHamburger();
 changeFormAction("tradesmen.html")
+wayfinding();
 const selectedTrade = getParams("trade");
 renderTradesmen(selectedTrade);
 qs("#tradeOption").addEventListener("change", (event) => {
   renderTradesmen(event.target.value);
 });
-wayfinding();
