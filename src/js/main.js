@@ -18,4 +18,3 @@ wayfinding();
 setTimeout(() => {
   trackVisits();
 }, 300);
-//
