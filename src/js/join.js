@@ -3,7 +3,7 @@ import {
   activateHamburger,
   qs,
   wayfinding,
-  changeFormAction
+  changeFormAction,
 } from "./utils.mjs";
 import Alert from "./Alert";
 loadHeaderFooter(

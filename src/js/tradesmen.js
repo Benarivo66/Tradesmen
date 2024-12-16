@@ -5,7 +5,7 @@ import {
   wayfinding,
   qs,
   getParams,
-  changeFormAction
+  changeFormAction,
 } from "./utils.mjs";
 loadHeaderFooter(
   "../index.html",
@@ -17,7 +17,7 @@ loadHeaderFooter(
   "../images/youtube.svg",
 );
 activateHamburger();
-changeFormAction("tradesmen.html")
+changeFormAction("tradesmen.html");
 wayfinding();
 const selectedTrade = getParams("trade");
 renderTradesmen(selectedTrade);

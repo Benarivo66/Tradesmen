@@ -14,5 +14,8 @@ loadHeaderFooter(
   "images/youtube.svg",
 );
 activateHamburger();
-trackVisits();
 wayfinding();
+setTimeout(() => {
+  trackVisits();
+}, 300);
+//

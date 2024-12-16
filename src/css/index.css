@@ -137,10 +137,10 @@ nav a:hover {
   margin: 1%;
   color: var(--secondary-color);
 }
-.hero p, .hero a{
+.hero p,
+.hero a {
   background-color: var(--tertiary-color);
   padding: 0.3%;
-  
 }
 .home-container {
   padding: 1rem;
@@ -149,10 +149,11 @@ nav a:hover {
   height: 300px;
   width: auto;
 }
-.promotional *, .blog *{
+.promotional *,
+.blog * {
   padding: 1%;
 }
-.promotional a{
+.promotional a {
   display: block;
 }
 /* TRADESMEN PAGE  */
@@ -164,19 +165,21 @@ nav a:hover {
 .tradeOptions {
   margin: 1% 2%;
 }
-.tradesman, .tradesman div {
+.tradesman,
+.tradesman div {
   display: flex;
   flex-direction: column;
   margin: 1rem;
   padding: 1rem;
 }
-.tradesman{
+.tradesman {
   border: solid 1px var(--tertiary-color);
   border-radius: 1rem;
   background-color: var(--secondary-color);
 }
 
-.tradesman img, .details img{
+.tradesman img,
+.details img {
   width: 35vw;
   height: 25vh;
 }
@@ -184,7 +187,7 @@ nav a:hover {
 .tradesman * {
   padding: 2%;
 }
-.tradesman button{
+.tradesman button {
   margin-top: 5%;
 }
 .details {
@@ -259,7 +262,7 @@ input:required:valid {
 }
 @keyframes animatePage {
   0% {
-   background-color: var(--primary-color);
+    background-color: var(--primary-color);
   }
   10% {
     background-color: var(--secondary-color);
@@ -298,7 +301,7 @@ input:required:valid {
     transform: translateX(0);
   }
 }
-.alert-list > *:hover{
+.alert-list > *:hover {
   animation: swing 0.5s ease-in-out;
 }
 
@@ -399,10 +402,11 @@ footer p {
   .tradesmen-container {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
-  .details{
+  .details {
     width: 22vw;
   }
-  .tradesman img, .details img{
+  .tradesman img,
+  .details img {
     width: 20vw;
   }
   /* JOIN US PAGE*/

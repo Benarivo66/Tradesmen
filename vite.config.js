@@ -18,7 +18,7 @@ export default defineConfig({
         tradesmen: resolve(__dirname, "src/tradesmen/tradesmen.html"),
         join: resolve(__dirname, "src/join/join.html"),
         about: resolve(__dirname, "src/about/about.html"),
-        thankyou: resolve(__dirname, "src/thankyou/index.html")
+        thankyou: resolve(__dirname, "src/thankyou/index.html"),
       },
     },
   },

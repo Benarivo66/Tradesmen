@@ -1,4 +1,9 @@
-import { loadHeaderFooter, activateHamburger, qs, changeFormAction } from "./utils.mjs";
+import {
+  loadHeaderFooter,
+  activateHamburger,
+  qs,
+  changeFormAction,
+} from "./utils.mjs";
 loadHeaderFooter(
   "../index.html",
   "../tradesmen/tradesmen.html",
@@ -10,7 +15,7 @@ loadHeaderFooter(
 );
 activateHamburger();
 changeFormAction();
-  qs("#container").classList.add("animatePage");
+qs("#container").classList.add("animatePage");
 function renderThankYouPage() {
   const observer = new MutationObserver(() => {
     const showInfo = qs("#results");
