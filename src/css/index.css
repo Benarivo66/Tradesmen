@@ -18,9 +18,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
-  width: 105vw;
-}
 /* HEADER */
 header {
   display: flex;
@@ -109,7 +106,7 @@ nav a:hover {
   font-size: 2.5rem;
   color: var(--secondary-color);
   position: absolute;
-  right: 7.5%;
+  right: 8.5%;
   top: 1.2rem;
 }
 #menu::before {
@@ -364,9 +361,6 @@ footer p {
   padding-top: 0.5rem;
 }
 @media screen and (min-width: 768px) {
-  body {
-    width: 100vw;
-  }
   /* HEADER STYLING */
   #animateme span a.active {
     text-decoration: overline;
