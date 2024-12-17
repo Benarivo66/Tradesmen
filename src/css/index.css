@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 body {
-  width: 102%;
+  width: 105vw;
 }
 /* HEADER */
 header {
@@ -365,7 +365,7 @@ footer p {
 }
 @media screen and (min-width: 768px) {
   body {
-    width: 100%;
+    width: 100vw;
   }
   /* HEADER STYLING */
   #animateme span a.active {
