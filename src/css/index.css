@@ -18,6 +18,9 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  width: 102%;
+}
 /* HEADER */
 header {
   display: flex;
@@ -26,7 +29,6 @@ header {
   padding: 1rem;
   background-color: var(--primary-color);
   color: var(--secondary-color);
-  width: 100vw;
 }
 header div:first-of-type,
 header div:nth-of-type(2) {
@@ -362,6 +364,9 @@ footer p {
   padding-top: 0.5rem;
 }
 @media screen and (min-width: 768px) {
+  body {
+    width: 100%;
+  }
   /* HEADER STYLING */
   #animateme span a.active {
     text-decoration: overline;
